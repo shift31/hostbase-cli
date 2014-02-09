@@ -1,0 +1,41 @@
+{
+	"name": "shift31/hostbase-cli",
+	"description": "The Hostbase CLI",
+	"license": "MIT",
+	"require": {
+		"laravel/framework": "4.1.*",
+        "barryvdh/laravel-ide-helper": "1.*",
+		"shift31/hostbase-api-client": "dev-master",
+        "symfony/yaml": "2.3.x-dev"
+	},
+	"autoload": {
+		"classmap": [
+			"src/app/commands",
+			"src/app/tests/TestCase.php"
+		],
+        "psr-0": {
+            "": "src/app/lib"
+        }
+	},
+	"scripts": {
+		"post-install-cmd": [
+			"php src/artisan clear-compiled",
+			"php src/artisan optimize"
+		],
+		"post-update-cmd": [
+			"php src/artisan clear-compiled",
+			"php src/artisan optimize",
+            "php src/artisan ide-helper:generate"
+		],
+		"post-create-project-cmd": [
+			"php src/artisan key:generate"
+		]
+	},
+	"config": {
+		"preferred-install": "dist",
+        "bin-dir": "bin",
+        "vendor-dir": "src/vendor"
+
+	},
+	"minimum-stability": "stable"
+}
