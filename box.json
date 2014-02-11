@@ -1,5 +1,4 @@
 {
-    "alias": "hostbase.phar",
     "chmod": "0755",
     "directories": ["src"],
     "finder": [
