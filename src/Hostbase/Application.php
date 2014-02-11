@@ -1,7 +1,7 @@
-<?php
+<?php namespace Hostbase;
 
 
-class HostbaseApplication extends Illuminate\Console\Application {
+class Application extends \Illuminate\Console\Application {
 
 	protected function getCommandName(\Symfony\Component\Console\Input\InputInterface $input)
 	{
@@ -14,7 +14,7 @@ class HostbaseApplication extends Illuminate\Console\Application {
 		// which is used when using the --help option
 		$defaultCommands = parent::getDefaultCommands();
 
-		$defaultCommands[] = new HostbaseCli();
+		$defaultCommands[] = new HostsCommand();
 
 		return $defaultCommands;
 	}

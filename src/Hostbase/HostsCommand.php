@@ -1,4 +1,4 @@
-<?php
+<?php namespace Hostbase;
 
 use Shift31\HostbaseClient;
 use Illuminate\Console\Command;
@@ -7,7 +7,7 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Yaml\Yaml;
 
 
-class HostbaseCli extends Command
+class HostsCommand extends Command
 {
 
 	/**
