@@ -5,7 +5,7 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Yaml\Yaml;
 
 
-class HostsCommand extends BaseCommand
+class SubnetsCommand extends BaseCommand
 {
 
 	/**
@@ -13,7 +13,7 @@ class HostsCommand extends BaseCommand
 	 *
 	 * @var string
 	 */
-	protected $name = 'hosts';
+	protected $name = 'subnets';
 
 
 	/**
@@ -21,7 +21,14 @@ class HostsCommand extends BaseCommand
 	 *
 	 * @var string
 	 */
-	protected $description = 'View and manipulate hosts';
+	protected $description = 'View and manipulate subnets';
+
+
+	public function __construct()
+	{
+		parent::__construct();
+		$this->hbClient->setResource('subnets');
+	}
 
 
 	/**
@@ -31,16 +38,16 @@ class HostsCommand extends BaseCommand
 	 */
 	public function fire()
 	{
-		$queryOrFqdn = $this->argument('query|fqdn');
+		$queryOrNetAddr = $this->argument('query|subnet');
 
 		if ($this->option('add')) {
-			$this->add($queryOrFqdn);
+			$this->add($queryOrNetAddr);
 		} elseif ($this->option('update')) {
-			$this->update($queryOrFqdn);
+			$this->update($queryOrNetAddr);
 		} elseif ($this->option('delete')) {
-			$this->delete($queryOrFqdn);
+			$this->delete($queryOrNetAddr);
 		} else {
-			$this->search($queryOrFqdn);
+			$this->search($queryOrNetAddr);
 		}
 	}
 
@@ -53,7 +60,7 @@ class HostsCommand extends BaseCommand
 	protected function getArguments()
 	{
 		return array(
-			array('query|fqdn', InputArgument::REQUIRED, 'A query or FQDN.'),
+			array('query|subnet', InputArgument::REQUIRED, 'A query or network address.'),
 		);
 	}
 
@@ -67,10 +74,10 @@ class HostsCommand extends BaseCommand
 	{
 		return array(
 			array('limit', null, InputOption::VALUE_REQUIRED, 'Limit size of result set.', null),
-			array('showdata', null, InputOption::VALUE_NONE, 'Show all data for host(s).', null),
-			array('add', null, InputOption::VALUE_REQUIRED, 'Add a host.', null),
-			array('update', null, InputOption::VALUE_REQUIRED, 'Update a host.', null),
-			array('delete', null, InputOption::VALUE_NONE, 'Delete a host.', null),
+			array('showdata', null, InputOption::VALUE_NONE, 'Show all data for subnet(s).', null),
+			array('add', null, InputOption::VALUE_REQUIRED, 'Add a subnet.', null),
+			array('update', null, InputOption::VALUE_REQUIRED, 'Update a subnet.', null),
+			array('delete', null, InputOption::VALUE_NONE, 'Delete a subnet.', null),
 		);
 	}
 
@@ -80,17 +87,19 @@ class HostsCommand extends BaseCommand
 	 */
 	protected function search($query)
 	{
+		$query = str_replace('/', '_', $query);
+
 		$limit = $this->option('limit') > 0 ? $this->option('limit') : 10000;
 
-		$hosts = $this->hbClient->search($query, $limit, $this->option('showdata'));
+		$subnets = $this->hbClient->search($query, $limit, $this->option('showdata'));
 
-		if (count($hosts) > 0) {
-			foreach ($hosts as $host) {
+		if (count($subnets) > 0) {
+			foreach ($subnets as $subnet) {
 				if ($this->option('showdata')) {
-					$this->info($host->fqdn);
-					$this->line(Yaml::dump((array) $host, 2));
+					$this->info("{$subnet->network}/{$subnet->cidr}");
+					$this->line(Yaml::dump((array) $subnet, 2));
 				} else {
-					$this->info($host);
+					$this->info($subnet);
 				}
 			}
 		} else {
@@ -100,9 +109,9 @@ class HostsCommand extends BaseCommand
 
 
 	/**
-	 * @param $fqdn
+	 * @param $subnet
 	 */
-	protected function add($fqdn)
+	protected function add($subnet)
 	{
 		$data = json_decode($this->option('add'), true);
 
@@ -112,11 +121,11 @@ class HostsCommand extends BaseCommand
 			$this->error('Missing JSON');
 			exit(1);
 		} else {
-			$data['fqdn'] = $fqdn;
+			$data['network'] = $subnet;
 
 			try {
 				$this->hbClient->store($data);
-				$this->info("Added '$fqdn'");
+				$this->info("Added '$subnet'");
 			} catch (\Exception $e) {
 				$this->error($e->getMessage());
 			}
@@ -125,9 +134,9 @@ class HostsCommand extends BaseCommand
 
 
 	/**
-	 * @param $fqdn
+	 * @param $subnet
 	 */
-	protected function update($fqdn)
+	protected function update($subnet)
 	{
 		$data = json_decode($this->option('update'), true);
 
@@ -138,8 +147,8 @@ class HostsCommand extends BaseCommand
 			exit(1);
 		} else {
 			try {
-				$this->hbClient->update($fqdn, $data);
-				$this->info("Modified '$fqdn'");
+				$this->hbClient->update($subnet, $data);
+				$this->info("Modified '$subnet'");
 			} catch (\Exception $e) {
 				$this->error($e->getMessage());
 			}
@@ -148,14 +157,14 @@ class HostsCommand extends BaseCommand
 
 
 	/**
-	 * @param $fqdn
+	 * @param $subnet
 	 */
-	protected function delete($fqdn)
+	protected function delete($subnet)
 	{
-		if ($this->confirm("Are you sure you want to delete '$fqdn'? [yes|no]")) {
+		if ($this->confirm("Are you sure you want to delete '$subnet'? [yes|no]")) {
 			try {
-				$this->hbClient->destroy($fqdn);
-				$this->info("Deleted $fqdn");
+				$this->hbClient->destroy($subnet);
+				$this->info("Deleted $subnet");
 			} catch (\Exception $e) {
 				$this->error($e->getMessage());
 			}

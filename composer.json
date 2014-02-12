@@ -9,14 +9,14 @@
 	},
 	"autoload": {
         "psr-0": {
-            "Hostbase": "src"
+            "Hostbase": "src/"
         }
 	},
 	"config": {
-		"preferred-install": "dist",
         "bin-dir": "bin",
         "vendor-dir": "src/vendor"
 
 	},
-	"minimum-stability": "stable"
+	"minimum-stability": "dev",
+    "prefer-stable": true
 }

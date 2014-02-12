@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "594bfd5a800116856a98a44cfba973d8",
+    "hash": "e87f305a3dcce47a960dc6526d490529",
     "packages": [
         {
             "name": "illuminate/console",
@@ -239,7 +239,7 @@
     "aliases": [
 
     ],
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "stability-flags": {
         "shift31/hostbase-api-client": 20,
         "symfony/yaml": 20

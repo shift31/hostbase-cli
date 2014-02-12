@@ -1,9 +1,13 @@
 #!/usr/bin/env php
 <?php
 
-use Hostbase\Application;
+use Illuminate\Console\Application;
 
 require __DIR__.'/../src/vendor/autoload.php';
 
 $app = new Application();
+$app->addCommands(array(
+		new Hostbase\HostsCommand(),
+        new Hostbase\SubnetsCommand(),
+	));
 $app->run();
