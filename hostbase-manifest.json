@@ -1,0 +1,8 @@
+[
+    {
+        "name": "hostbase.phar",
+        "sha1": "85d02c3d689facd245c59d1a002959278c978c17",
+        "url": "https://bitbucket.org/shift31/hostbase-cli/raw/master/hostbase.phar",
+        "version": "0.9.0"
+    }
+]
