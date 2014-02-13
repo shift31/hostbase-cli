@@ -73,11 +73,11 @@ class SubnetsCommand extends BaseCommand
 	protected function getOptions()
 	{
 		return array(
-			array('limit', null, InputOption::VALUE_REQUIRED, 'Limit size of result set.', null),
-			array('showdata', null, InputOption::VALUE_NONE, 'Show all data for subnet(s).', null),
-			array('add', null, InputOption::VALUE_REQUIRED, 'Add a subnet.', null),
-			array('update', null, InputOption::VALUE_REQUIRED, 'Update a subnet.', null),
-			array('delete', null, InputOption::VALUE_NONE, 'Delete a subnet.', null),
+			array('limit', 'l', InputOption::VALUE_REQUIRED, 'Limit size of result set.', null),
+			array('showdetails', 's', InputOption::VALUE_NONE, 'Show all data for subnet(s).', null),
+			array('add', 'a', InputOption::VALUE_REQUIRED, 'Add a subnet.', null),
+			array('update', 'u', InputOption::VALUE_REQUIRED, 'Update a subnet.', null),
+			array('delete', 'd', InputOption::VALUE_NONE, 'Delete a subnet.', null),
 		);
 	}
 
@@ -91,11 +91,11 @@ class SubnetsCommand extends BaseCommand
 
 		$limit = $this->option('limit') > 0 ? $this->option('limit') : 10000;
 
-		$subnets = $this->hbClient->search($query, $limit, $this->option('showdata'));
+		$subnets = $this->hbClient->search($query, $limit, $this->option('showdetails'));
 
 		if (count($subnets) > 0) {
 			foreach ($subnets as $subnet) {
-				if ($this->option('showdata')) {
+				if ($this->option('showdetails')) {
 					$this->info("{$subnet->network}/{$subnet->cidr}");
 					$this->line(Yaml::dump((array) $subnet, 2));
 				} else {
@@ -103,7 +103,7 @@ class SubnetsCommand extends BaseCommand
 				}
 			}
 		} else {
-			$this->error("No hosts matching '$query' were found.");
+			$this->error("No subnets matching '$query' were found.");
 		}
 	}
 

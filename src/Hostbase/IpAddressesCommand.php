@@ -5,7 +5,7 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Yaml\Yaml;
 
 
-class HostsCommand extends BaseCommand
+class IpAddressesCommand extends BaseCommand
 {
 
 	/**
@@ -13,7 +13,7 @@ class HostsCommand extends BaseCommand
 	 *
 	 * @var string
 	 */
-	protected $name = 'hosts';
+	protected $name = 'ips';
 
 
 	/**
@@ -21,7 +21,14 @@ class HostsCommand extends BaseCommand
 	 *
 	 * @var string
 	 */
-	protected $description = 'View and manipulate hosts';
+	protected $description = 'View and manipulate IP addresses';
+
+
+	public function __construct()
+	{
+		parent::__construct();
+		$this->hbClient->setResource('ipaddresses');
+	}
 
 
 	/**
@@ -31,16 +38,16 @@ class HostsCommand extends BaseCommand
 	 */
 	public function fire()
 	{
-		$queryOrFqdn = $this->argument('query|fqdn');
+		$queryOrIpAddr = $this->argument('query|ip');
 
 		if ($this->option('add')) {
-			$this->add($queryOrFqdn);
+			$this->add($queryOrIpAddr);
 		} elseif ($this->option('update')) {
-			$this->update($queryOrFqdn);
+			$this->update($queryOrIpAddr);
 		} elseif ($this->option('delete')) {
-			$this->delete($queryOrFqdn);
+			$this->delete($queryOrIpAddr);
 		} else {
-			$this->search($queryOrFqdn);
+			$this->search($queryOrIpAddr);
 		}
 	}
 
@@ -53,7 +60,7 @@ class HostsCommand extends BaseCommand
 	protected function getArguments()
 	{
 		return array(
-			array('query|fqdn', InputArgument::REQUIRED, 'A query or FQDN.'),
+			array('query|ip', InputArgument::REQUIRED, 'A query or IP address.'),
 		);
 	}
 
@@ -67,10 +74,10 @@ class HostsCommand extends BaseCommand
 	{
 		return array(
 			array('limit', 'l', InputOption::VALUE_REQUIRED, 'Limit size of result set.', null),
-			array('showdetails', 's', InputOption::VALUE_NONE, 'Show all data for host(s).', null),
-			array('add', 'a', InputOption::VALUE_REQUIRED, 'Add a host.', null),
-			array('update', 'u', InputOption::VALUE_REQUIRED, 'Update a host.', null),
-			array('delete', 'd', InputOption::VALUE_NONE, 'Delete a host.', null),
+			array('showdetails', 's', InputOption::VALUE_NONE, 'Show all data for IP address(es).', null),
+			array('add', 'a', InputOption::VALUE_REQUIRED, 'Add an IP address.', null),
+			array('update', 'u', InputOption::VALUE_REQUIRED, 'Update an IP address.', null),
+			array('delete', 'd', InputOption::VALUE_NONE, 'Delete an IP address.', null),
 		);
 	}
 
@@ -82,27 +89,27 @@ class HostsCommand extends BaseCommand
 	{
 		$limit = $this->option('limit') > 0 ? $this->option('limit') : 10000;
 
-		$hosts = $this->hbClient->search($query, $limit, $this->option('showdetails'));
+		$ipAddresses = $this->hbClient->search($query, $limit, $this->option('showdetails'));
 
-		if (count($hosts) > 0) {
-			foreach ($hosts as $host) {
+		if (count($ipAddresses) > 0) {
+			foreach ($ipAddresses as $ipAddress) {
 				if ($this->option('showdetails')) {
-					$this->info($host->fqdn);
-					$this->line(Yaml::dump((array) $host, 2));
+					$this->info($ipAddress->ipAddress);
+					$this->line(Yaml::dump((array) $ipAddress, 2));
 				} else {
-					$this->info($host);
+					$this->info($ipAddress);
 				}
 			}
 		} else {
-			$this->error("No hosts matching '$query' were found.");
+			$this->error("No IP addresses matching '$query' were found.");
 		}
 	}
 
 
 	/**
-	 * @param $fqdn
+	 * @param $ipAddress
 	 */
-	protected function add($fqdn)
+	protected function add($ipAddress)
 	{
 		$data = json_decode($this->option('add'), true);
 
@@ -112,11 +119,11 @@ class HostsCommand extends BaseCommand
 			$this->error('Missing JSON');
 			exit(1);
 		} else {
-			$data['fqdn'] = $fqdn;
+			$data['ipAddress'] = $ipAddress;
 
 			try {
 				$this->hbClient->store($data);
-				$this->info("Added '$fqdn'");
+				$this->info("Added '$ipAddress'");
 			} catch (\Exception $e) {
 				$this->error($e->getMessage());
 			}
@@ -125,9 +132,9 @@ class HostsCommand extends BaseCommand
 
 
 	/**
-	 * @param $fqdn
+	 * @param $ipAddress
 	 */
-	protected function update($fqdn)
+	protected function update($ipAddress)
 	{
 		$data = json_decode($this->option('update'), true);
 
@@ -138,8 +145,8 @@ class HostsCommand extends BaseCommand
 			exit(1);
 		} else {
 			try {
-				$this->hbClient->update($fqdn, $data);
-				$this->info("Modified '$fqdn'");
+				$this->hbClient->update($ipAddress, $data);
+				$this->info("Modified '$ipAddress'");
 			} catch (\Exception $e) {
 				$this->error($e->getMessage());
 			}
@@ -148,14 +155,14 @@ class HostsCommand extends BaseCommand
 
 
 	/**
-	 * @param $fqdn
+	 * @param $ipAddress
 	 */
-	protected function delete($fqdn)
+	protected function delete($ipAddress)
 	{
-		if ($this->confirm("Are you sure you want to delete '$fqdn'? [yes|no]")) {
+		if ($this->confirm("Are you sure you want to delete '$ipAddress'? [yes|no]")) {
 			try {
-				$this->hbClient->destroy($fqdn);
-				$this->info("Deleted $fqdn");
+				$this->hbClient->destroy($ipAddress);
+				$this->info("Deleted $ipAddress");
 			} catch (\Exception $e) {
 				$this->error($e->getMessage());
 			}

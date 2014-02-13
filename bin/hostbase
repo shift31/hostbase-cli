@@ -5,9 +5,10 @@ use Illuminate\Console\Application;
 
 require __DIR__.'/../src/vendor/autoload.php';
 
-$app = new Application();
+$app = new Application('Hostbase CLI Client', '0.9.0');
 $app->addCommands(array(
 		new Hostbase\HostsCommand(),
         new Hostbase\SubnetsCommand(),
+        new Hostbase\IpAddressesCommand()
 	));
 $app->run();

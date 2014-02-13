@@ -6,9 +6,7 @@ use Illuminate\Console\Command;
 
 class BaseCommand extends Command
 {
-
 	const CONFIG_FILE = 'hostbase-cli.config.php';
-
 
 
 	public function __construct()
