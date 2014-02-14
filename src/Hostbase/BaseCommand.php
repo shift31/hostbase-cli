@@ -26,6 +26,9 @@ class BaseCommand extends Command
 			isset($config['username']) ? $config['username'] : null,
 			isset($config['password']) ? $config['password'] : null
 		);
+
+		// data must be returned as an array for proper Yaml conversion
+		$this->hbClient->decodeJsonAsArray();
 	}
 
 

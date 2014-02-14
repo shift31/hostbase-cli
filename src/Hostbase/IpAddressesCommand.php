@@ -94,7 +94,7 @@ class IpAddressesCommand extends BaseCommand
 		if (count($ipAddresses) > 0) {
 			foreach ($ipAddresses as $ipAddress) {
 				if ($this->option('showdetails')) {
-					$this->info($ipAddress->ipAddress);
+					$this->info($ipAddress['ipAddress']);
 					$this->line(Yaml::dump((array) $ipAddress, 2));
 				} else {
 					$this->info($ipAddress);

@@ -96,7 +96,7 @@ class SubnetsCommand extends BaseCommand
 		if (count($subnets) > 0) {
 			foreach ($subnets as $subnet) {
 				if ($this->option('showdetails')) {
-					$this->info("{$subnet->network}/{$subnet->cidr}");
+					$this->info("{$subnet['network']}/{$subnet['cidr']}");
 					$this->line(Yaml::dump((array) $subnet, 2));
 				} else {
 					$this->info($subnet);

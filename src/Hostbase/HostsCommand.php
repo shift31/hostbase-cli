@@ -87,7 +87,7 @@ class HostsCommand extends BaseCommand
 		if (count($hosts) > 0) {
 			foreach ($hosts as $host) {
 				if ($this->option('showdetails')) {
-					$this->info($host->fqdn);
+					$this->info($host['fqdn']);
 					$this->line(Yaml::dump((array) $host, 2));
 				} else {
 					$this->info($host);
