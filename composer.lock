@@ -445,12 +445,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/shift31/hostbase-api-client-php.git",
-                "reference": "ec63fa534dcdaab4811073b87734b95c96af9154"
+                "reference": "6ee86c6ef8ac39b1da10249658b93dec96a39c65"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/shift31/hostbase-api-client-php/zipball/ec63fa534dcdaab4811073b87734b95c96af9154",
-                "reference": "ec63fa534dcdaab4811073b87734b95c96af9154",
+                "url": "https://api.github.com/repos/shift31/hostbase-api-client-php/zipball/6ee86c6ef8ac39b1da10249658b93dec96a39c65",
+                "reference": "6ee86c6ef8ac39b1da10249658b93dec96a39c65",
                 "shasum": ""
             },
             "require": {
@@ -468,7 +468,7 @@
                 "MIT"
             ],
             "description": "The Hostbase API Client Library for PHP",
-            "time": "2014-02-14 04:55:42"
+            "time": "2014-02-15 22:46:57"
         },
         {
             "name": "symfony/console",
