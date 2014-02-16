@@ -87,8 +87,6 @@ class SubnetsCommand extends BaseCommand
 	 */
 	protected function search($query)
 	{
-		$query = str_replace('/', '_', $query);
-
 		$limit = $this->option('limit') > 0 ? $this->option('limit') : 10000;
 
 		$subnets = $this->hbClient->search($query, $limit, $this->option('showdetails'));
