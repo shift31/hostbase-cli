@@ -1,32 +1,8 @@
 [
-    {
-        "name": "hostbase.phar",
-        "sha1": "85d02c3d689facd245c59d1a002959278c978c17",
-        "url": "https://bitbucket.org/shift31/hostbase-cli/raw/master/hostbase.phar",
-        "version": "0.9.0"
-    },
-    {
-        "name": "hostbase.phar",
-        "sha1": "694e2c772ddf38c9393a7fb745a1b68c91065876",
-        "url": "https://bitbucket.org/shift31/hostbase-cli/raw/master/hostbase.phar",
-        "version": "0.9.1"
-    },
-    {
-        "name": "hostbase.phar",
-        "sha1": "a1f57a72b4b2187a27cd0354b6c405f769063b64",
-        "url": "https://bitbucket.org/shift31/hostbase-cli/raw/master/hostbase.phar",
-        "version": "0.9.2"
-    },
-    {
-        "name": "hostbase.phar",
-        "sha1": "d8464e47af9fc80fd904e99c0a24d43da5a69e9d",
-        "url": "https://bitbucket.org/shift31/hostbase-cli/raw/master/hostbase.phar",
-        "version": "0.9.3"
-    },
-    {
+   {
         "name": "hostbase.phar",
         "sha1": "fe67976dc88170b2df686c2953bdc61defe2fd0e",
         "url": "https://bitbucket.org/shift31/hostbase-cli/raw/master/hostbase.phar",
         "version": "0.9.4"
-    }
+   }
 ]
