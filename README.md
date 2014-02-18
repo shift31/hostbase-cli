@@ -1,5 +1,7 @@
 # Hostbase Command Line Client
 
+The Hostbase CLI features full-text search (using Elasticsearch/Lucene query syntax) and basic CRUD operations, which accept JSON.
+
 ## Installation
 
 1. Download the PHAR:  https://github.com/shift31/hostbase-cli/raw/master/hostbase.phar
