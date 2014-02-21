@@ -175,7 +175,7 @@
         },
         {
             "name": "illuminate/console",
-            "version": "v4.1.21",
+            "version": "v4.1.22",
             "target-dir": "Illuminate/Console",
             "source": {
                 "type": "git",
@@ -292,12 +292,12 @@
             "version": "3.0.3",
             "source": {
                 "type": "git",
-                "url": "https://github.com/kherge/Amend.git",
+                "url": "https://github.com/kherge-archive/Amend.git",
                 "reference": "d191de606b3b76a28f09d97ddc04014426116965"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kherge/Amend/zipball/d191de606b3b76a28f09d97ddc04014426116965",
+                "url": "https://api.github.com/repos/kherge-archive/Amend/zipball/d191de606b3b76a28f09d97ddc04014426116965",
                 "reference": "d191de606b3b76a28f09d97ddc04014426116965",
                 "shasum": ""
             },
@@ -445,12 +445,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/shift31/hostbase-api-client-php.git",
-                "reference": "ddbb63988e483239be6bfcf05f835a4a6727a229"
+                "reference": "52b93de4d23fc8a915c8883dc93ef699f952d3a0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/shift31/hostbase-api-client-php/zipball/ddbb63988e483239be6bfcf05f835a4a6727a229",
-                "reference": "ddbb63988e483239be6bfcf05f835a4a6727a229",
+                "url": "https://api.github.com/repos/shift31/hostbase-api-client-php/zipball/52b93de4d23fc8a915c8883dc93ef699f952d3a0",
+                "reference": "52b93de4d23fc8a915c8883dc93ef699f952d3a0",
                 "shasum": ""
             },
             "require": {
@@ -468,7 +468,7 @@
                 "MIT"
             ],
             "description": "The Hostbase API Client Library for PHP",
-            "time": "2014-02-16 11:52:50"
+            "time": "2014-02-18 04:49:30"
         },
         {
             "name": "symfony/console",
@@ -561,7 +561,9 @@
             "authors": [
                 {
                     "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
+                    "email": "fabien@symfony.com",
+                    "homepage": "http://fabien.potencier.org",
+                    "role": "Lead Developer"
                 },
                 {
                     "name": "Symfony Community",

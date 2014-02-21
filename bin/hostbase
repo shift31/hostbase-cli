@@ -5,12 +5,13 @@ use Illuminate\Console\Application;
 
 require __DIR__.'/../src/vendor/autoload.php';
 
-$app = new Application('Hostbase Client', '0.9.4');
+$app = new Application('Hostbase Client', '0.9.5');
+
 $app->addCommands(array(
-		new Hostbase\HostsCommand(),
-        new Hostbase\SubnetsCommand(),
-        new Hostbase\IpAddressesCommand()
-	));
+    new Hostbase\HostsCommand(),
+    new Hostbase\SubnetsCommand(),
+    new Hostbase\IpAddressesCommand()
+));
 
 // self-update
 $updateCommand = new KevinGH\Amend\Command('self-update');

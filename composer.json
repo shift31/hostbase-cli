@@ -1,23 +1,23 @@
 {
-	"name": "shift31/hostbase-cli",
-	"description": "The Hostbase CLI",
-	"license": "MIT",
-	"require": {
-		"illuminate/console": "~4",
+    "name": "shift31/hostbase-cli",
+    "description": "The Hostbase CLI",
+    "license": "MIT",
+    "require": {
+        "illuminate/console": "~4",
         "shift31/hostbase-api-client": "dev-master",
         "symfony/yaml": "2.3.x-dev",
-		"kherge/amend": "3.*"
-	},
-	"autoload": {
+        "kherge/amend": "3.*"
+    },
+    "autoload": {
         "psr-0": {
             "Hostbase": "src/"
         }
-	},
-	"config": {
+    },
+    "config": {
         "bin-dir": "bin",
         "vendor-dir": "src/vendor"
 
-	},
-	"minimum-stability": "dev",
+    },
+    "minimum-stability": "dev",
     "prefer-stable": true
 }
