@@ -15,7 +15,7 @@ $app->addCommands(array(
 
 // self-update
 $updateCommand = new KevinGH\Amend\Command('self-update');
-$updateCommand->setManifestUri('https://bitbucket.org/shift31/hostbase-cli/raw/master/hostbase-manifest.json');
+$updateCommand->setManifestUri('https://github.com/shift31/hostbase-cli/raw/master/hostbase-manifest.json');
 $app->add($updateCommand);
 $app->getHelperSet()->set(new KevinGH\Amend\Helper);
 
