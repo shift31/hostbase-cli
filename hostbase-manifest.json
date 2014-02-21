@@ -7,7 +7,7 @@
    },
     {
         "name": "hostbase.phar",
-        "sha1": "e7d124ac20ee4d306fd7450b89f494d2f968d512",
+        "sha1": "4d934937f51fb4c680c9cb55b34118014842c7be",
         "url": "https://github.com/shift31/hostbase-cli/raw/master/hostbase.phar",
         "version": "0.9.5"
     }
