@@ -52,15 +52,15 @@ hostbase hosts hostname.example.com
 
 #### Example where 'domain' contains 'example.com':
 
-    ```bash
-    hostbase hosts -s 'domain:example.com'
-    ```
+```bash
+hostbase hosts -s 'domain:example.com'
+```
 
 #### Show all host data (output Yaml)
 
-    ```bash
-    hostbase hosts -sx 'domain:example.com'
-    ```
+```bash
+hostbase hosts -sx 'domain:example.com'
+```
 
 
 ### Delete a host
