@@ -18,3 +18,53 @@ Create /etc/hostbase-cli.config.php
      'baseUrl' => 'http://your.hostbase.server'
  );
  ```
+
+## Usage
+
+### Add a host (raw JSON string)
+
+```bash
+hostbase hosts -a '{"fqdn": "hostname.domain.tld", "fooKey": "barValue"}' hostname.domain.tld
+```
+
+### Add a host (.json file using Bash subshell)
+
+host.json:
+
+```json
+{
+    "fqdn": "hostname.example.com",
+    "fooKey": "barValue"
+}
+```
+
+```bash
+hostbase hosts -a "$(cat host.json)" hostname.example.com
+```
+
+### Find a host by FQDN
+
+```bash
+hostbase hosts hostname.example.com
+```
+
+### Search for a host
+
+#### Example where 'domain' contains 'example.com':
+
+    ```bash
+    hostbase hosts -s 'domain:example.com'
+    ```
+
+#### Show all host data (output Yaml)
+
+    ```bash
+    hostbase hosts -sx 'domain:example.com'
+    ```
+
+
+### Delete a host
+
+```bash
+hostbase hosts -d hostname.example.com
+```
