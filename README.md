@@ -75,6 +75,15 @@ Available commands:
   subnets       View and manipulate subnets
 ```
 
+#### Hosts
+`hostbase hosts [-k|--key="..."] [-s|--search] [-l|--limit="..."] [-x|--extendOutput] [-a|--add="..."] [-u|--update="..."] [-d|--delete] fqdn|query`
+
+#### Subnets
+`hostbase subnets [-k|--key="..."] [-s|--search] [-l|--limit="..."] [-x|--extendOutput] [-a|--add="..."] [-u|--update="..."] [-d|--delete] subnet|query`
+
+#### IP Addresses
+`hostbase ips [-k|--key="..."] [-s|--search] [-l|--limit="..."] [-x|--extendOutput] [-a|--add="..."] [-u|--update="..."] [-d|--delete] ip|query`
+
 ### Add a host
 
 Example adding a host with the mandatory 'fqdn' field and another (arbitrary) field:
