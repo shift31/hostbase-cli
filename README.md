@@ -157,6 +157,7 @@ Use [Elasticsearch/Lucene query syntax](http://www.elasticsearch.org/guide/en/el
     hostbase hosts -s 'domain:example.com' -k operatingsystem
     ```
 - List all hosts
+
     **Note that adding the 'x' option won't work here to prevent too much data from being output.**
 
     ```bash
