@@ -36,7 +36,7 @@ Create /etc/hostbase-cli.config.php:
  );
 ```
 
-**Configuration for [Hostbase Vagrant-built Development Server](https://github.com/shift31/hostbase#vagrant):**
+**Configuration for [Hostbase Development Server](https://github.com/shift31/hostbase#vagrant):**
 ```php
 <?php
 
