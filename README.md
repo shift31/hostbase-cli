@@ -158,7 +158,7 @@ Use [Elasticsearch/Lucene query syntax](http://www.elasticsearch.org/guide/en/el
     ```
 - List all hosts
 
-    **Note that adding the 'x' option won't work here to prevent too much data from being output.**
+    **Note that adding the extended output (-x) option won't work here, because the Hostbase server only returns a list of hosts when a search string is null.  This prevents too much data from being output.**
 
     ```bash
     hostbase hosts -s ""
