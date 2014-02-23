@@ -151,6 +151,17 @@ Use [Elasticsearch/Lucene query syntax](http://www.elasticsearch.org/guide/en/el
     ```bash
     hostbase hosts -sx 'domain:example.com'
     ```
+- Only return values for a specific field/key (using 'operatingsystem' as example)
+
+    ```bash
+    hostbase hosts -s 'domain:example.com' -k operatingsystem
+    ```
+- List all hosts
+    **Note that adding the 'x' option won't work here to prevent too much data from being output.**
+
+    ```bash
+    hostbase hosts -s ""
+    ```
 
 ### Delete a host
 
@@ -161,3 +172,7 @@ hostbase hosts -d hostname.example.com
 ### Other entities
 
 The 'subnets' and 'ips' commands work the same way as 'hosts'
+
+## Todo
+
+- Option to output JSON
