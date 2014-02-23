@@ -174,6 +174,6 @@ hostbase hosts -d hostname.example.com
 
 The 'subnets' and 'ips' commands work the same way as 'hosts'
 
-## Todo
+## To-do
 
 - Option to output JSON
