@@ -2,7 +2,6 @@
 
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputOption;
-use Symfony\Component\Yaml\Yaml;
 
 
 class HostsCommand extends BaseCommand
@@ -73,48 +72,25 @@ class HostsCommand extends BaseCommand
      */
     protected function getOptions()
     {
-        return array(
-            array('key', 'k', InputOption::VALUE_REQUIRED, 'Only show the value for this key.', null),
-            array('search', 's', InputOption::VALUE_NONE, 'Search with query string.', null),
-            array('limit', 'l', InputOption::VALUE_REQUIRED, 'Limit size of result set.', null),
-            array('extendOutput', 'x', InputOption::VALUE_NONE, 'Show all data for host(s) during search.', null),
-            array('add', 'a', InputOption::VALUE_REQUIRED, 'Add a host.', null),
-            array('update', 'u', InputOption::VALUE_REQUIRED, 'Update a host.', null),
-            array('delete', 'd', InputOption::VALUE_NONE, 'Delete a host.', null),
+        return array_merge(
+            parent::getOptions(),
+            array(
+                array('extendOutput', 'x', InputOption::VALUE_NONE, 'Show all data for host(s) during search.', null),
+                array('add', 'a', InputOption::VALUE_REQUIRED, 'Add a host.', null),
+                array('update', 'u', InputOption::VALUE_REQUIRED, 'Update a host.', null),
+                array('delete', 'd', InputOption::VALUE_NONE, 'Delete a host.', null),
+            )
         );
     }
 
 
     /**
      * @param $query
+     *
+     * @return mixed|void
      */
-    protected function search($query)
+    protected function resourcesNotFound($query)
     {
-        $limit = $this->option('limit') > 0 ? $this->option('limit') : 10000;
-
-        $key = $this->option('key');
-
-        $hosts = $this->hbClient->search($query, $limit, $key ? true : $this->option('extendOutput'));
-
-        if (count($hosts) > 0) {
-            foreach ($hosts as $host) {
-                if ($key) {
-                    $this->info($host[static::$keySuffixField]);
-                    $value = isset($host[$key]) ? $host[$key] : 'undefined';
-                    if ($value == 'undefined') {
-                        $this->comment("$key: $value\n");
-                    } else {
-                        $this->line("$key: $value\n");
-                    }
-                } elseif ($this->option('extendOutput')) {
-                    $this->info($host['fqdn']);
-                    $this->line(Yaml::dump((array) $host, 2));
-                } else {
-                    $this->info($host);
-                }
-            }
-        } else {
-            $this->error("No hosts matching '$query' were found.");
-        }
+        $this->error("No hosts matching '$query' were found.");
     }
 }

@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "3e45b3e4c99c176d0ceb64cba4d1bec9",
+    "hash": "13e820a5892f25de69a0a4e4c46c84fc",
     "packages": [
         {
             "name": "herrera-io/json",
@@ -532,12 +532,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Yaml.git",
-                "reference": "d6ce55d18a957591312a1c1dd7098d72db0e2ed5"
+                "reference": "a68fb8dbcf5ef2a8006e96756aa05f99169cef95"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Yaml/zipball/d6ce55d18a957591312a1c1dd7098d72db0e2ed5",
-                "reference": "d6ce55d18a957591312a1c1dd7098d72db0e2ed5",
+                "url": "https://api.github.com/repos/symfony/Yaml/zipball/a68fb8dbcf5ef2a8006e96756aa05f99169cef95",
+                "reference": "a68fb8dbcf5ef2a8006e96756aa05f99169cef95",
                 "shasum": ""
             },
             "require": {
@@ -572,7 +572,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "http://symfony.com",
-            "time": "2014-01-07 13:19:25"
+            "time": "2014-02-23 18:17:23"
         }
     ],
     "packages-dev": [

@@ -50,9 +50,6 @@ Create /etc/hostbase-cli.config.php:
 ### Help
 
 ```
-$ hostbase
-Hostbase Client version 0.9.5
-
 Usage:
   [options] command [arguments]
 
@@ -76,13 +73,13 @@ Available commands:
 ```
 
 #### Hosts
-`hostbase hosts [-k|--key="..."] [-s|--search] [-l|--limit="..."] [-x|--extendOutput] [-a|--add="..."] [-u|--update="..."] [-d|--delete] fqdn|query`
+`hostbase hosts [-j|--json] [-k|--key="..."] [-s|--search] [-l|--limit="..."] [-x|--extendOutput] [-a|--add="..."] [-u|--update="..."] [-d|--delete] fqdn|query`
 
 #### Subnets
-`hostbase subnets [-k|--key="..."] [-s|--search] [-l|--limit="..."] [-x|--extendOutput] [-a|--add="..."] [-u|--update="..."] [-d|--delete] subnet|query`
+`hostbase subnets [-j|--json] [-k|--key="..."] [-s|--search] [-l|--limit="..."] [-x|--extendOutput] [-a|--add="..."] [-u|--update="..."] [-d|--delete] subnet|query`
 
 #### IP Addresses
-`hostbase ips [-k|--key="..."] [-s|--search] [-l|--limit="..."] [-x|--extendOutput] [-a|--add="..."] [-u|--update="..."] [-d|--delete] ip|query`
+`hostbase ips [-j|--json] [-k|--key="..."] [-s|--search] [-l|--limit="..."] [-x|--extendOutput] [-a|--add="..."] [-u|--update="..."] [-d|--delete] ip|query`
 
 ### Add a host
 
@@ -133,9 +130,16 @@ Example adding a field (key/value pair):
 
 ### Find a host by FQDN
 
-```bash
-hostbase hosts hostname.example.com
-```
+- Output Yaml (default):
+
+    ```bash
+    hostbase hosts hostname.example.com
+    ```
+- Output JSON:
+
+    ```bash
+    hostbase hosts -j hostname.example.com
+    ```
 
 ### Search for a host
 
@@ -152,6 +156,8 @@ Use [Elasticsearch/Lucene query syntax](http://www.elasticsearch.org/guide/en/el
     hostbase hosts -sx 'domain:example.com'
     ```
 - Only return values for a specific field/key (using 'operatingsystem' as example)
+
+    This also works when requesting a single host.
 
     ```bash
     hostbase hosts -s 'domain:example.com' -k operatingsystem
@@ -173,7 +179,3 @@ hostbase hosts -d hostname.example.com
 ### Other entities
 
 The 'subnets' and 'ips' commands work the same way as 'hosts'
-
-## To-do
-
-- Option to output JSON

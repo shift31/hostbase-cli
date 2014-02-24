@@ -2,7 +2,6 @@
 
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputOption;
-use Symfony\Component\Yaml\Yaml;
 
 
 class SubnetsCommand extends BaseCommand
@@ -80,14 +79,14 @@ class SubnetsCommand extends BaseCommand
      */
     protected function getOptions()
     {
-        return array(
-            array('key', 'k', InputOption::VALUE_REQUIRED, 'Only show the value for this key.', null),
-            array('search', 's', InputOption::VALUE_NONE, 'Search with query string.', null),
-            array('limit', 'l', InputOption::VALUE_REQUIRED, 'Limit size of result set.', null),
-            array('extendOutput', 'x', InputOption::VALUE_NONE, 'Show all data for subnet(s) during search.', null),
-            array('add', 'a', InputOption::VALUE_REQUIRED, 'Add a subnet.', null),
-            array('update', 'u', InputOption::VALUE_REQUIRED, 'Update a subnet.', null),
-            array('delete', 'd', InputOption::VALUE_NONE, 'Delete a subnet.', null),
+        return array_merge(
+            parent::getOptions(),
+            array(
+                array('extendOutput', 'x', InputOption::VALUE_NONE, 'Show all data for subnet(s) during search.', null),
+                array('add', 'a', InputOption::VALUE_REQUIRED, 'Add a subnet.', null),
+                array('update', 'u', InputOption::VALUE_REQUIRED, 'Update a subnet.', null),
+                array('delete', 'd', InputOption::VALUE_NONE, 'Delete a subnet.', null),
+            )
         );
     }
 
@@ -106,22 +105,26 @@ class SubnetsCommand extends BaseCommand
         if (count($subnets) > 0) {
             foreach ($subnets as $subnet) {
                 if ($key) {
-                    $this->info("{$subnet['network']}/{$subnet['cidr']}");
-                    $value = isset($subnet[$key]) ? $subnet[$key] : 'undefined';
-                    if ($value == 'undefined') {
-                        $this->comment("$key: $value\n");
-                    } else {
-                        $this->line("$key: $value\n");
-                    }
+                    $this->outputKey($subnet, $key, "{$subnet['network']}/{$subnet['cidr']}");
                 } elseif ($this->option('extendOutput')) {
-                    $this->info("{$subnet['network']}/{$subnet['cidr']}");
-                    $this->line(Yaml::dump((array) $subnet, 2));
+                    $this->outputResource($subnet, "{$subnet['network']}/{$subnet['cidr']}");
                 } else {
                     $this->info($subnet);
                 }
             }
         } else {
-            $this->error("No subnets matching '$query' were found.");
+            $this->resourcesNotFound($query);
         }
+    }
+
+
+    /**
+     * @param $query
+     *
+     * @return mixed|void
+     */
+    protected function resourcesNotFound($query)
+    {
+        $this->error("No subnets matching '$query' were found.");
     }
 }

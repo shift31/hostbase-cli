@@ -2,7 +2,6 @@
 
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputOption;
-use Symfony\Component\Yaml\Yaml;
 
 
 class IpAddressesCommand extends BaseCommand
@@ -80,48 +79,31 @@ class IpAddressesCommand extends BaseCommand
      */
     protected function getOptions()
     {
-        return array(
-            array('key', 'k', InputOption::VALUE_REQUIRED, 'Only show the value for this key.', null),
-            array('search', 's', InputOption::VALUE_NONE, 'Search with query string.', null),
-            array('limit', 'l', InputOption::VALUE_REQUIRED, 'Limit size of result set.', null),
-            array('extendOutput', 'x', InputOption::VALUE_NONE, 'Show all data for IP address(es) during search.', null),
-            array('add', 'a', InputOption::VALUE_REQUIRED, 'Add an IP address.', null),
-            array('update', 'u', InputOption::VALUE_REQUIRED, 'Update an IP address.', null),
-            array('delete', 'd', InputOption::VALUE_NONE, 'Delete an IP address.', null),
+        return array_merge(
+            parent::getOptions(),
+            array(
+                array(
+                    'extendOutput',
+                    'x',
+                    InputOption::VALUE_NONE,
+                    'Show all data for IP address(es) during search.',
+                    null
+                ),
+                array('add', 'a', InputOption::VALUE_REQUIRED, 'Add an IP address.', null),
+                array('update', 'u', InputOption::VALUE_REQUIRED, 'Update an IP address.', null),
+                array('delete', 'd', InputOption::VALUE_NONE, 'Delete an IP address.', null),
+            )
         );
     }
 
 
     /**
      * @param $query
+     *
+     * @return mixed|void
      */
-    protected function search($query)
+    protected function resourcesNotFound($query)
     {
-        $limit = $this->option('limit') > 0 ? $this->option('limit') : 10000;
-
-        $key = $this->option('key');
-
-        $ipAddresses = $this->hbClient->search($query, $limit, $key ? true : $this->option('extendOutput'));
-
-        if (count($ipAddresses) > 0) {
-            foreach ($ipAddresses as $ipAddress) {
-                if ($key) {
-                    $this->info($ipAddress[static::$keySuffixField]);
-                    $value = isset($ipAddress[$key]) ? $ipAddress[$key] : 'undefined';
-                    if ($value == 'undefined') {
-                        $this->comment("$key: $value\n");
-                    } else {
-                        $this->line("$key: $value\n");
-                    }
-                } elseif ($this->option('extendOutput')) {
-                    $this->info($ipAddress['ipAddress']);
-                    $this->line(Yaml::dump((array) $ipAddress, 2));
-                } else {
-                    $this->info($ipAddress);
-                }
-            }
-        } else {
-            $this->error("No IP addresses matching '$query' were found.");
-        }
+        $this->error("No IP addresses matching '$query' were found.");
     }
 }
