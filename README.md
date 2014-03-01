@@ -1,6 +1,6 @@
 # Hostbase Command Line Client
 
-The Hostbase CLI features full-text search (using Elasticsearch/Lucene query syntax) and basic CRUD operations, which accept JSON.
+The [Hostbase](https://github.com/shift31/hostbase) CLI features full-text search (using Elasticsearch/Lucene query syntax) and basic CRUD operations, which accept JSON.
 
 - [Installation](#installation)
 - [Configuration](#configuration)
