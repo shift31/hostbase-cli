@@ -12,6 +12,7 @@ The Hostbase CLI features full-text search (using Elasticsearch/Lucene query syn
     - [Search for a host](#search-for-a-host)
     - [Delete a host](#delete-a-host)
     - [Other entities](#other-entities)
+    - [Laravel Envoy](#laravel-envoy)
 
 
 ## Installation
@@ -179,3 +180,26 @@ hostbase hosts -d hostname.example.com
 ### Other entities
 
 The 'subnets' and 'ips' commands work the same way as 'hosts'
+
+### Laravel Envoy
+
+Using [Laravel Envoy](https://github.com/laravel/envoy), you can easily run tasks on multiple servers (in serial or parallel).  Here's an example `Envoy.blade.php` that retrieves an array of hosts from the output of `hostbase` and runs `ls -la` on each server, one at a time:
+
+```php
+<?php
+$servers = [];
+exec('hostbase hosts -s "env:prod AND role:www"', $servers);
+
+$credentials = [];
+
+foreach ($servers as $server) {
+  $credentials[$server] = 'root@' . $server;
+}
+?>
+
+@servers($credentials)
+
+@task('foo', ['on' => $servers])
+ls -la
+@endtask
+```
