@@ -16,5 +16,11 @@
         "sha1": "b8afd22429f09c7c4faffd018a82c82a2dce6602",
         "url": "https://github.com/shift31/hostbase-cli/raw/master/hostbase.phar",
         "version": "0.9.6"
+    },
+    {
+        "name": "hostbase.phar",
+        "sha1": "F9722FE5F63724142420AD91D696FC0B3EDE302B",
+        "url": "https://github.com/shift31/hostbase-cli/raw/master/hostbase.phar",
+        "version": "0.10.0"
     }
 ]
