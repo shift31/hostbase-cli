@@ -1,6 +1,12 @@
 {
     "name": "shift31/hostbase-cli",
     "description": "The Hostbase CLI",
+    "authors": [
+        {
+            "name": "Shift 31 Consulting",
+            "email": "code@shift31.com"
+        }
+    ],
     "license": "MIT",
     "require": {
         "illuminate/console": "~4",
