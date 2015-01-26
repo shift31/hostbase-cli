@@ -10,8 +10,8 @@
     "license": "MIT",
     "require": {
         "illuminate/console": "~4",
-        "shift31/hostbase-api-client": "dev-refactor",
-        "symfony/yaml": "2.5.*",
+        "shift31/hostbase-api-client": "dev-develop",
+        "symfony/yaml": "2.6.*",
         "kherge/amend": "3.*"
     },
     "autoload": {
