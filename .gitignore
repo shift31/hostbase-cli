@@ -7,3 +7,5 @@ Thumbs.db
 .idea
 _ide_helper.php
 atlassian-ide-plugin.xml
+bin/jsonlint
+bin/validate-json

@@ -10,7 +10,7 @@
     "license": "MIT",
     "require": {
         "illuminate/console": "~4",
-        "shift31/hostbase-api-client": "dev-develop",
+        "shift31/hostbase-api-client": "0.2.*",
         "symfony/yaml": "2.6.*",
         "kherge/amend": "3.*"
     },
