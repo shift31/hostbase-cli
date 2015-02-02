@@ -230,7 +230,7 @@ abstract class BaseCommand extends Command
         $this->info($title);
 
         if ($this->option('json')) {
-            if (PHP_MAJOR_VERSION == 5 and PHP_MINOR_VERSION == 4) {
+            if (PHP_MAJOR_VERSION == 5 and PHP_MINOR_VERSION >= 4) {
                 $this->line(json_encode($resource, JSON_FORCE_OBJECT | JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
             } else {
                 $this->line(json_encode($resource, JSON_FORCE_OBJECT));

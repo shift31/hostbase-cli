@@ -27,7 +27,7 @@ The [Hostbase](https://github.com/shift31/hostbase) CLI features full-text searc
 
 ## Configuration
 
-Create /etc/hostbase-cli.config.php:
+Create hostbase-cli.config.php in /etc or your home directory:
 
 ```php
 <?php
@@ -164,8 +164,6 @@ Use [Elasticsearch/Lucene query syntax](http://www.elasticsearch.org/guide/en/el
     hostbase hosts -s 'domain:example.com' -k operatingsystem
     ```
 - List all hosts
-
-    **Note that adding the extended output (-x) option won't work here, because the Hostbase server only returns a list of hosts when a search string is null.  This prevents too much data from being output.**
 
     ```bash
     hostbase hosts -s ""

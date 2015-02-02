@@ -1,9 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
+        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
     ],
-    "hash": "13e820a5892f25de69a0a4e4c46c84fc",
+    "hash": "69c369d667bf9a1a26411a2b3bd58c67",
     "packages": [
         {
             "name": "herrera-io/json",
@@ -124,16 +125,16 @@
         },
         {
             "name": "herrera-io/version",
-            "version": "1.1.0",
+            "version": "1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/herrera-io/php-version.git",
-                "reference": "e4ef0771b7d353777a7ef950a20eee269cabd323"
+                "reference": "d39d9642b92a04d8b8a28b871b797a35a2545e85"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/herrera-io/php-version/zipball/e4ef0771b7d353777a7ef950a20eee269cabd323",
-                "reference": "e4ef0771b7d353777a7ef950a20eee269cabd323",
+                "url": "https://api.github.com/repos/herrera-io/php-version/zipball/d39d9642b92a04d8b8a28b871b797a35a2545e85",
+                "reference": "d39d9642b92a04d8b8a28b871b797a35a2545e85",
                 "shasum": ""
             },
             "require": {
@@ -146,7 +147,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.0-dev"
+                    "dev-master": "1.1.x-dev"
                 }
             },
             "autoload": {
@@ -162,7 +163,8 @@
                 {
                     "name": "Kevin Herrera",
                     "email": "kevin@herrera.io",
-                    "homepage": "http://kevin.herrera.io"
+                    "homepage": "http://kevin.herrera.io/",
+                    "role": "Developer"
                 }
             ],
             "description": "A library for creating, editing, and comparing semantic versioning numbers.",
@@ -171,33 +173,31 @@
                 "semantic",
                 "version"
             ],
-            "time": "2014-01-21 23:21:16"
+            "time": "2014-05-27 05:29:25"
         },
         {
             "name": "illuminate/console",
-            "version": "v4.1.22",
+            "version": "v4.2.16",
             "target-dir": "Illuminate/Console",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/console.git",
-                "reference": "5f38c8f821b33d44fe5a5cf90031c7f52bc7e366"
+                "reference": "eae32985d08f3f2c6d4f4a3d2c61ac8780905e42"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/console/zipball/5f38c8f821b33d44fe5a5cf90031c7f52bc7e366",
-                "reference": "5f38c8f821b33d44fe5a5cf90031c7f52bc7e366",
+                "url": "https://api.github.com/repos/illuminate/console/zipball/eae32985d08f3f2c6d4f4a3d2c61ac8780905e42",
+                "reference": "eae32985d08f3f2c6d4f4a3d2c61ac8780905e42",
                 "shasum": ""
             },
             "require": {
-                "symfony/console": "2.4.*"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "3.7.*"
+                "php": ">=5.4.0",
+                "symfony/console": "2.5.*"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.1-dev"
+                    "dev-master": "4.2-dev"
                 }
             },
             "autoload": {
@@ -212,25 +212,23 @@
             "authors": [
                 {
                     "name": "Taylor Otwell",
-                    "email": "taylorotwell@gmail.com",
-                    "homepage": "https://github.com/taylorotwell",
-                    "role": "Developer"
+                    "email": "taylorotwell@gmail.com"
                 }
             ],
-            "time": "2013-12-22 02:42:19"
+            "time": "2014-12-16 17:45:06"
         },
         {
             "name": "justinrainbow/json-schema",
-            "version": "1.3.5",
+            "version": "1.3.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/justinrainbow/json-schema.git",
-                "reference": "01949f6d2130e9737ffae5d3952909a8de70d114"
+                "reference": "87b54b460febed69726c781ab67462084e97a105"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/justinrainbow/json-schema/zipball/01949f6d2130e9737ffae5d3952909a8de70d114",
-                "reference": "01949f6d2130e9737ffae5d3952909a8de70d114",
+                "url": "https://api.github.com/repos/justinrainbow/json-schema/zipball/87b54b460febed69726c781ab67462084e97a105",
+                "reference": "87b54b460febed69726c781ab67462084e97a105",
                 "shasum": ""
             },
             "require": {
@@ -261,11 +259,6 @@
             ],
             "authors": [
                 {
-                    "name": "Igor Wiedler",
-                    "email": "igor@wiedler.ch",
-                    "homepage": "http://wiedler.ch/igor/"
-                },
-                {
                     "name": "Bruno Prieto Reis",
                     "email": "bruno.p.reis@gmail.com"
                 },
@@ -274,9 +267,12 @@
                     "email": "justin.rainbow@gmail.com"
                 },
                 {
+                    "name": "Igor Wiedler",
+                    "email": "igor@wiedler.ch"
+                },
+                {
                     "name": "Robert Schönthal",
-                    "email": "seroscho@googlemail.com",
-                    "homepage": "http://digitalkaoz.net"
+                    "email": "seroscho@googlemail.com"
                 }
             ],
             "description": "A library to validate a json schema.",
@@ -285,20 +281,20 @@
                 "json",
                 "schema"
             ],
-            "time": "2013-12-13 15:21:04"
+            "time": "2014-08-25 02:48:14"
         },
         {
             "name": "kherge/amend",
-            "version": "3.0.3",
+            "version": "3.0.4",
             "source": {
                 "type": "git",
-                "url": "https://github.com/kherge-archive/Amend.git",
-                "reference": "d191de606b3b76a28f09d97ddc04014426116965"
+                "url": "https://github.com/box-project/amend.git",
+                "reference": "16cc7665e847d09cc9ccadec546a2de05c40e8f4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kherge-archive/Amend/zipball/d191de606b3b76a28f09d97ddc04014426116965",
-                "reference": "d191de606b3b76a28f09d97ddc04014426116965",
+                "url": "https://api.github.com/repos/box-project/amend/zipball/16cc7665e847d09cc9ccadec546a2de05c40e8f4",
+                "reference": "16cc7665e847d09cc9ccadec546a2de05c40e8f4",
                 "shasum": ""
             },
             "require": {
@@ -334,26 +330,26 @@
                 }
             ],
             "description": "Integrates Phar Update to Symfony Console.",
-            "homepage": "http://kherge.github.com/Amend",
+            "homepage": "http://github.com/box-project/amend",
             "keywords": [
                 "console",
                 "phar",
                 "update"
             ],
-            "time": "2013-11-09 17:50:41"
+            "time": "2014-11-05 15:29:01"
         },
         {
             "name": "nategood/httpful",
-            "version": "0.2.11",
+            "version": "0.2.17",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nategood/httpful.git",
-                "reference": "0bf1423028abe2f630e1d2ef8d62486d6655b2f3"
+                "reference": "7beda470b57250f60ce1b0179c5551620c3e43e6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nategood/httpful/zipball/0bf1423028abe2f630e1d2ef8d62486d6655b2f3",
-                "reference": "0bf1423028abe2f630e1d2ef8d62486d6655b2f3",
+                "url": "https://api.github.com/repos/nategood/httpful/zipball/7beda470b57250f60ce1b0179c5551620c3e43e6",
+                "reference": "7beda470b57250f60ce1b0179c5551620c3e43e6",
                 "shasum": ""
             },
             "require": {
@@ -390,20 +386,20 @@
                 "rest",
                 "restful"
             ],
-            "time": "2013-10-20 11:03:40"
+            "time": "2014-08-24 21:57:36"
         },
         {
             "name": "seld/jsonlint",
-            "version": "1.1.2",
+            "version": "1.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/jsonlint.git",
-                "reference": "7cd4c4965e17e6e4c07f26d566619a4c76f8c672"
+                "reference": "863ae85c6d3ef60ca49cb12bd051c4a0648c40c4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/jsonlint/zipball/7cd4c4965e17e6e4c07f26d566619a4c76f8c672",
-                "reference": "7cd4c4965e17e6e4c07f26d566619a4c76f8c672",
+                "url": "https://api.github.com/repos/Seldaek/jsonlint/zipball/863ae85c6d3ef60ca49cb12bd051c4a0648c40c4",
+                "reference": "863ae85c6d3ef60ca49cb12bd051c4a0648c40c4",
                 "shasum": ""
             },
             "require": {
@@ -414,8 +410,8 @@
             ],
             "type": "library",
             "autoload": {
-                "psr-0": {
-                    "Seld\\JsonLint": "src/"
+                "psr-4": {
+                    "Seld\\JsonLint\\": "src/Seld/JsonLint/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -426,8 +422,7 @@
                 {
                     "name": "Jordi Boggiano",
                     "email": "j.boggiano@seld.be",
-                    "homepage": "http://seld.be",
-                    "role": "Developer"
+                    "homepage": "http://seld.be"
                 }
             ],
             "description": "JSON Linter",
@@ -437,24 +432,24 @@
                 "parser",
                 "validator"
             ],
-            "time": "2013-11-04 15:41:11"
+            "time": "2015-01-04 21:18:15"
         },
         {
             "name": "shift31/hostbase-api-client",
-            "version": "dev-master",
+            "version": "0.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/shift31/hostbase-api-client-php.git",
-                "reference": "52b93de4d23fc8a915c8883dc93ef699f952d3a0"
+                "reference": "405e1835b03294033910a146da9ed0bb3ab5fcd6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/shift31/hostbase-api-client-php/zipball/52b93de4d23fc8a915c8883dc93ef699f952d3a0",
-                "reference": "52b93de4d23fc8a915c8883dc93ef699f952d3a0",
+                "url": "https://api.github.com/repos/shift31/hostbase-api-client-php/zipball/405e1835b03294033910a146da9ed0bb3ab5fcd6",
+                "reference": "405e1835b03294033910a146da9ed0bb3ab5fcd6",
                 "shasum": ""
             },
             "require": {
-                "nategood/httpful": "0.2.11",
+                "nategood/httpful": "0.2.*",
                 "php": ">=5.3"
             },
             "type": "library",
@@ -467,37 +462,45 @@
             "license": [
                 "MIT"
             ],
+            "authors": [
+                {
+                    "name": "Shift 31 Consulting",
+                    "email": "code@shift31.com"
+                }
+            ],
             "description": "The Hostbase API Client Library for PHP",
-            "time": "2014-02-18 04:49:30"
+            "time": "2015-02-02 05:03:44"
         },
         {
             "name": "symfony/console",
-            "version": "v2.4.2",
+            "version": "v2.5.9",
             "target-dir": "Symfony/Component/Console",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Console.git",
-                "reference": "940f217cbc3c8a33e5403e7c595495c4884400fe"
+                "reference": "754f4b6de7b4a1d442f9b6a728bfb7adef54592c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Console/zipball/940f217cbc3c8a33e5403e7c595495c4884400fe",
-                "reference": "940f217cbc3c8a33e5403e7c595495c4884400fe",
+                "url": "https://api.github.com/repos/symfony/Console/zipball/754f4b6de7b4a1d442f9b6a728bfb7adef54592c",
+                "reference": "754f4b6de7b4a1d442f9b6a728bfb7adef54592c",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3"
             },
             "require-dev": {
+                "psr/log": "~1.0",
                 "symfony/event-dispatcher": "~2.1"
             },
             "suggest": {
+                "psr/log": "For using the console logger",
                 "symfony/event-dispatcher": ""
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.4-dev"
+                    "dev-master": "2.5-dev"
                 }
             },
             "autoload": {
@@ -511,33 +514,31 @@
             ],
             "authors": [
                 {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com",
-                    "homepage": "http://fabien.potencier.org",
-                    "role": "Lead Developer"
-                },
-                {
                     "name": "Symfony Community",
                     "homepage": "http://symfony.com/contributors"
+                },
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
                 }
             ],
             "description": "Symfony Console Component",
             "homepage": "http://symfony.com",
-            "time": "2014-02-11 13:52:09"
+            "time": "2015-01-06 17:40:45"
         },
         {
             "name": "symfony/yaml",
-            "version": "2.3.x-dev",
+            "version": "v2.6.3",
             "target-dir": "Symfony/Component/Yaml",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Yaml.git",
-                "reference": "a68fb8dbcf5ef2a8006e96756aa05f99169cef95"
+                "reference": "82462a90848a52c2533aa6b598b107d68076b018"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Yaml/zipball/a68fb8dbcf5ef2a8006e96756aa05f99169cef95",
-                "reference": "a68fb8dbcf5ef2a8006e96756aa05f99169cef95",
+                "url": "https://api.github.com/repos/symfony/Yaml/zipball/82462a90848a52c2533aa6b598b107d68076b018",
+                "reference": "82462a90848a52c2533aa6b598b107d68076b018",
                 "shasum": ""
             },
             "require": {
@@ -546,7 +547,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.3-dev"
+                    "dev-master": "2.6-dev"
                 }
             },
             "autoload": {
@@ -560,36 +561,25 @@
             ],
             "authors": [
                 {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com",
-                    "homepage": "http://fabien.potencier.org",
-                    "role": "Lead Developer"
-                },
-                {
                     "name": "Symfony Community",
                     "homepage": "http://symfony.com/contributors"
+                },
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
                 }
             ],
             "description": "Symfony Yaml Component",
             "homepage": "http://symfony.com",
-            "time": "2014-02-23 18:17:23"
+            "time": "2015-01-03 15:33:07"
         }
     ],
-    "packages-dev": [
-
-    ],
-    "aliases": [
-
-    ],
-    "minimum-stability": "dev",
-    "stability-flags": {
-        "shift31/hostbase-api-client": 20,
-        "symfony/yaml": 20
-    },
-    "platform": [
-
-    ],
-    "platform-dev": [
-
-    ]
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
 }

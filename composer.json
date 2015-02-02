@@ -1,11 +1,17 @@
 {
     "name": "shift31/hostbase-cli",
     "description": "The Hostbase CLI",
+    "authors": [
+        {
+            "name": "Shift 31 Consulting",
+            "email": "code@shift31.com"
+        }
+    ],
     "license": "MIT",
     "require": {
         "illuminate/console": "~4",
-        "shift31/hostbase-api-client": "dev-master",
-        "symfony/yaml": "2.3.x-dev",
+        "shift31/hostbase-api-client": "0.2.*",
+        "symfony/yaml": "2.6.*",
         "kherge/amend": "3.*"
     },
     "autoload": {
@@ -17,7 +23,5 @@
         "bin-dir": "bin",
         "vendor-dir": "src/vendor"
 
-    },
-    "minimum-stability": "dev",
-    "prefer-stable": true
+    }
 }
